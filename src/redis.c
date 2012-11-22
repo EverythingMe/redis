@@ -2100,7 +2100,7 @@ sds genRedisInfoString(char *section) {
                 while ((node = listNext(&li)) != NULL) {
                     sentinelInfo *s = (sentinelInfo*)node->value;
 
-                    info = sdscatprintf(info, "sentinel%d:%s:%d\r\n", i++, s->host, s->port);
+                    info = sdscatprintf(info, "sentinel%d:%s.%d\r\n", i++, s->host, s->port);
                 }
             }
         }
